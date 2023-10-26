@@ -1,3 +1,5 @@
-import config from '../../config'
+// import config from '../../config'
+import dotenv from 'dotenv'
+dotenv.config()
 
-export const token = config.token
+export const token = process.env.TOKEN
