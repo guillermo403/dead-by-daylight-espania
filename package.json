@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node build/index.js",
     "dev": "tsx --watch index.ts",
-    "build": "tsc",
+    "build": "tsc && tsc-alias",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [],
@@ -24,6 +24,7 @@
   "dependencies": {
     "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
+    "tsc-alias": "^1.8.8",
     "tsx": "^3.14.0"
   }
 }

@@ -2,6 +2,7 @@ import { type Client } from 'discord.js'
 import fs from 'node:fs'
 import { join } from 'node:path'
 import { type Event } from './types/event'
+import logger from './lib/utils/logger'
 
 export const start = async (client: Client): Promise<number> => {
   const eventsPath = join(__dirname, 'events')
@@ -16,11 +17,11 @@ export const start = async (client: Client): Promise<number> => {
         event.once !== undefined && event.once !== null && event.once
           ? client.once(event.name, (...args) => { event.execute([...args], client) })
           : client.on(event.name, (...args) => { event.execute([...args], client) })
-        console.log(`Loaded event ${event.name}`)
+        logger.info(`Loaded event ${event.name}`)
         ++eventsLoaded
       })
       .catch((err) => {
-        console.error(err)
+        logger.error(err)
         process.exit(1)
       })
   }

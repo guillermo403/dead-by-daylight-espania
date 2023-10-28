@@ -1,5 +1,6 @@
-// import config from '../../config'
-import dotenv from 'dotenv'
-dotenv.config()
+import config from 'config'
+import { getCurrentEnvironment } from './environment'
 
-export const token = process.env.TOKEN
+const currentEnvironment = getCurrentEnvironment()
+
+export const token: string = config[currentEnvironment].token
