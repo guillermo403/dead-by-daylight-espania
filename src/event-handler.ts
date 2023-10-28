@@ -17,7 +17,7 @@ export const start = async (client: Client): Promise<number> => {
         event.once !== undefined && event.once !== null && event.once
           ? client.once(event.name, (...args) => { event.execute([...args], client) })
           : client.on(event.name, (...args) => { event.execute([...args], client) })
-        logger.info(`Loaded event ${event.name}`)
+        logger.info(`Loaded event <${event.name}>`)
         ++eventsLoaded
       })
       .catch((err) => {

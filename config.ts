@@ -1,8 +1,9 @@
 import dotenv from 'dotenv'
 import { type Environment } from './src/types'
+
 dotenv.config()
 
-type Config = Record<Environment, Record<string, string>>
+type Config = Record<Environment, Record<string, any>>
 
 const config: Config = {
   development: {
